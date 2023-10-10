@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from pyzbar.pyzbar import decode
 import sys
+import os
 
 def leer_qr(frame, codigos_leidos):
     codigos = decode(frame)
@@ -14,6 +15,7 @@ def leer_qr(frame, codigos_leidos):
             if datos not in codigos_leidos:
                 print(f'Tipo: {tipo}, Datos: {datos}')
                 codigos_leidos.add(datos)
+                out_put(datos)
 
             puntos = codigo.polygon
 
@@ -63,6 +65,18 @@ def main():
     # Restaurar la salida estándar original
     sys.stdout.close()
     sys.stdout = sys.__stdout__
+
+def out_put(datos):
+    filename = 'qrcodes.txt'
+    if not os.path.exists(filename):
+        with open(filename, 'w') as file:
+            file.write(datos)
+    else:
+        with open(filename, 'r') as file:
+            existing_data = file.read()
+        if datos not in existing_data:
+            with open(filename, 'a') as file:
+                file.write('\n' + datos)
 
 if __name__ == "__main__":
   try:
