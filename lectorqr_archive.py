@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import filedialog
 from pyzbar.pyzbar import decode
 import sys
+from tkinter import messagebox
 
 def leer_barcodes(imagen, codigos_leidos):
     codigos = decode(imagen)
@@ -56,3 +57,5 @@ if __name__ == "__main__":
       main()
     except KeyboardInterrupt:
       sys.exit()
+    except Exception as e:
+        messagebox.showerror(title="lector qr de archivos", message=f"{e}"
