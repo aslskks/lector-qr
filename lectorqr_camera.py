@@ -85,4 +85,4 @@ if __name__ == "__main__":
     sys.exit()
   except Exception as e:
       from tkinter import messagebox
-      messagebox.showerror(title="", message=f"{e}")
+      messagebox.showerror(title="lector qr de la camara", message=f"{e}")
