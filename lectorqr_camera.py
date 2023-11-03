@@ -83,3 +83,6 @@ if __name__ == "__main__":
     main()
   except KeyboardInterrupt:
     sys.exit()
+  except Exception as e:
+      from tkinter import messagebox
+      messagebox.showerror(title="", message=f"{e}")
