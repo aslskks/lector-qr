@@ -54,8 +54,8 @@ def main():
 
 if __name__ == "__main__":
     try:
-      main()
+        main()
     except KeyboardInterrupt:
-      sys.exit()
+        sys.exit()
     except Exception as e:
-        messagebox.showerror(title="lector qr de archivos", message=f"{e}"
+        messagebox.showerror(title="lector qr de archivos", message=f"{e}")
